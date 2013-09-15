@@ -10,10 +10,13 @@ ProbablyEngine.rotation.register(255, {
     { "Explosive Trap", "modifier.alt", "ground" },
     { "Freezing Trap" , "modifier.shift", "ground" },
 
-    { "Silencing Shot", "modifier.interrupts" },
+    { "Counter Shot", "modifier.interrupts" }, 
 
     -- Survival
-    { "Deterrence", "player.health < 40" },
+   { "Deterrence",{
+        "player.health < 40",
+        "!player.buff(Deterrence)"
+    }}, 
     { "Exhilaration", "player.health < 40" },
     { "Mend Pet", {
         "pet.health <= 75",
@@ -30,6 +33,7 @@ ProbablyEngine.rotation.register(255, {
         "modifier.cooldowns",
         "player.buff(Rapid Fire)"
     }},
+    { "Blood Fury", "modifier.cooldowns" },
 
     -- AoE
     { "Multi-Shot", {
@@ -42,16 +46,17 @@ ProbablyEngine.rotation.register(255, {
     }},
 
     -- Rotation
+    { "Kill Shot", "target.health < 20"}, 
     { "Explosive Shot", "player.buff(Lock and Load)" },
     { "Serpent Sting", "!target.debuff(Serpent Sting)" },
-    { "Steady Shot", "target.debuff(Serpent Sting).duration < 4" },
+    { "Cobra Shot", "target.debuff(Serpent Sting).duration < 4" },
     { "Black Arrow"},
     { "Explosive Shot" },
     { "Glaive Toss" },
     { "Powershot" },
     { "Barrage" },
     { "Dire Beast" },
-    { "Fervor" },
+    { "Fervor", "player.focus <= 35" }, 
     { "Arcane Shot", "player.buff(Thrill of the Hunt)"},
     { "Arcane Shot", "player.focus >= 60"},
     { "Cobra Shot" }
