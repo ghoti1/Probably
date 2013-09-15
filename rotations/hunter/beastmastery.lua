@@ -10,10 +10,15 @@ ProbablyEngine.rotation.register(253, {
     { "Explosive Trap", "modifier.alt", "ground" },
     { "Freezing Trap" , "modifier.shift", "ground" },
 
-    { "Silencing Shot", "modifier.interrupts" },
+    { "Counter Shot", "modifier.interrupts" },
 
     -- Survival
-    { "Deterrence", "player.health < 40" },
+    { "Deterrence",{
+        "player.health < 40",
+        "!player.buff(Deterrence)"
+    }},
+        
+        
     { "Exhilaration", "player.health < 40" },
     { "Mend Pet", {
         "pet.health <= 75",
@@ -27,8 +32,10 @@ ProbablyEngine.rotation.register(253, {
     { "A Murder of Crows", "modifier.cooldowns" },
     { "Dire Beast", "modifier.cooldowns" },
     { "Rapid Fire", "modifier.cooldowns" },
+    { "Blood Fury", "modifier.cooldowns" },
 
     -- Rotation
+    { "Kill Shot", "target.health < 20"},
     { "Serpent Sting", "!target.debuff(Serpent Sting)" },
     { "Steady Shot", "target.debuff(Serpent Sting).duration < 4" },
     { "Focus Fire", {
@@ -43,7 +50,7 @@ ProbablyEngine.rotation.register(253, {
     { "Powershot" },
     { "Barrage" },
     { "Dire Beast" },
-    { "Fervor" },
+    { "Fervor", "player.focus <= 35" },
     { "Arcane Shot", "player.focus >= 60"},
     { "Arcane Shot", {
         "player.buff(Thrill of the Hunt)",
