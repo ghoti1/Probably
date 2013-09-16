@@ -9,8 +9,7 @@ ProbablyEngine.rotation.register(253, {
     { "Snake Trap"    , "modifier.control", "ground" },
     { "Explosive Trap", "modifier.alt", "ground" },
     { "Freezing Trap" , "modifier.shift", "ground" },
-
-    { "Silencing Shot", "modifier.interrupts" },
+    { "Counter Shot", "modifier.interrupts" },
 
     -- Survival
     { "Deterrence", "player.health < 40" },
@@ -27,8 +26,10 @@ ProbablyEngine.rotation.register(253, {
     { "A Murder of Crows", "modifier.cooldowns" },
     { "Dire Beast", "modifier.cooldowns" },
     { "Rapid Fire", "modifier.cooldowns" },
+    { "Blood Fury", "modifier.cooldowns" },
 
     -- Rotation
+    { "Kill Shot", "target.health < 20" },
     { "Serpent Sting", "!target.debuff(Serpent Sting)" },
     { "Steady Shot", "target.debuff(Serpent Sting).duration < 4" },
     { "Focus Fire", {
